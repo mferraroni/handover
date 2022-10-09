@@ -44,7 +44,7 @@ class LoginController extends Controller
                 'required_scopes' => join(' ', config('vatsim_auth.scopes')),
             ]);
             $request->session()->put('oauthstate', $this->provider->getState());
-			return redirect()->away($authorizationUrl);
+            return redirect()->away($authorizationUrl);
         } else if ($request->input('state') !== session()->pull('oauthstate')) {
             return redirect()->to('/')->withError("Login state mismatch error. Please try again. If this persists, please contact Web Services.");
         } else {

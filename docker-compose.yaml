@@ -1,12 +1,19 @@
 version: '3'
 
 services:
+  db:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: yes
+      MYSQL_DATABASE: handover
   web:
     container_name: handover
-    image: vatsca/apache:php-8.1
+    image: mferraroni/php8.1-apache
     ports:
-        - 5000:80
-        - 5001:443
+        - 5012:80
+        - 5013:443
     extra_hosts:
         - "host.docker.internal:host-gateway"
         - "vatsca.local:host-gateway"
