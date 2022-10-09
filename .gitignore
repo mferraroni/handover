@@ -17,4 +17,4 @@ yarn-error.log
 .rnd
 apache/*
 public/js/app.js.LICENSE.txt
-docker-compose.yml
+docker-compose.yaml
